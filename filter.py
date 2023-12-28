@@ -88,7 +88,8 @@ def sliding_function(img, kernel):
 def rgb_sliding(img, kernel):
     img_arr = np.array(img)
     blurred_image = np.zeros_like(img_arr)
-    for idx, channel in enumerate((img_arr[:, :, 0], img_arr[:, :, 1], img_arr[:, :, 2])):
+    for idx, channel in enumerate(
+            (img_arr[:, :, 0], img_arr[:, :, 1], img_arr[:, :, 2])):
         blurred_channel = sliding_function(channel, kernel)
         blurred_image[:, :, idx] = blurred_channel
     return im.fromarray(blurred_image)
